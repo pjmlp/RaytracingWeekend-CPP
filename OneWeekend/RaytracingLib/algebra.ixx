@@ -6,6 +6,10 @@ import <random>;
 
 using std::sqrt;
 
+// forward declarations
+double random_double();
+double random_double(double min, double max);
+
 export class vec3 {
 public:
     vec3() : e{ 0,0,0 } {}
@@ -98,6 +102,22 @@ export {
     inline vec3 unit_vector(vec3 v) {
         return v / v.length();
     }
+
+    inline static vec3 random() {
+        return vec3(random_double(), random_double(), random_double());
+    }
+
+    inline static vec3 random(double min, double max) {
+        return vec3(random_double(min, max), random_double(min, max), random_double(min, max));
+    }
+
+    vec3 random_in_unit_sphere() {
+        while (true) {
+            auto p = random(-1, 1);
+            if (p.length_squared() >= 1) continue;
+            return p;
+        }
+    }
 }
 
 // Constants
@@ -115,6 +135,11 @@ export inline double random_double() {
     static std::uniform_real_distribution<double> distribution(0.0, 1.0);
     static std::mt19937 generator;
     return distribution(generator);
+}
+
+export inline double random_double(double min, double max) {
+    // Returns a random real in [min,max).
+    return min + (max - min) * random_double();
 }
 
 export inline double clamp(double x, double min, double max) {
