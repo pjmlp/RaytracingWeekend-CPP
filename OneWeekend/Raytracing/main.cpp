@@ -1,36 +1,33 @@
+
 import <iostream>;
-import <array>;
-import <stdexcept>;
+
 import images;
+
+using namespace Raytracinglib::images;
 
 int main() {
     // Image
     constexpr int image_width = 256;
     constexpr int image_height = 256;
-    constexpr int bpp = 3;
 
-    std::array<std::byte, image_width * image_height * 3> buffer;
+    ImageBuffer buffer(image_width, image_height, PixelFormat::RGB);
 
     // Render
-
-    int current = 0;
     for (int j = image_height - 1; j >= 0; --j) {
+        std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
         for (int i = 0; i < image_width; ++i) {
             auto r = double(i) / (image_width - 1);
             auto g = double(j) / (image_height - 1);
             auto b = 0.25;
 
-            auto ir = static_cast<std::byte>(255.999 * r);
-            auto ig = static_cast<std::byte>(255.999 * g);
-            auto ib = static_cast<std::byte>(255.999 * b);
+            auto ir = static_cast<std::uint8_t>(255.999 * r);
+            auto ig = static_cast<std::uint8_t>(255.999 * g);
+            auto ib = static_cast<std::uint8_t>(255.999 * b);
 
-            buffer[current    ] = ir;
-            buffer[current + 1] = ig;
-            buffer[current + 2] = ib;
-
-            current += 3;
+            buffer.set_color(i, j, ir, ig, ib);
         }
     }
 
-    write_image("img.png", image_width, image_height, PixelFormat::RGB, buffer);
+    buffer.save("img.png");
+    std::cerr << "\nDone.\n";
 }
