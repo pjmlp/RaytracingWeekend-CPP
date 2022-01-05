@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RaytracingLib", "RaytracingLib\RaytracingLib.vcxproj", "{0977CA7B-DF59-49C8-A0AB-2B3A47405908}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{745E5151-6712-426B-8829-C23B5463BA55}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Raytracing", "Raytracing\Raytracing.vcxproj", "{C696869F-5D7D-4444-818A-249917DBDB46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0977CA7B-DF59-49C8-A0AB-2B3A47405908}.Debug|x64.ActiveCfg = Debug|x64
+		{0977CA7B-DF59-49C8-A0AB-2B3A47405908}.Debug|x64.Build.0 = Debug|x64
+		{0977CA7B-DF59-49C8-A0AB-2B3A47405908}.Debug|x86.ActiveCfg = Debug|Win32
+		{0977CA7B-DF59-49C8-A0AB-2B3A47405908}.Debug|x86.Build.0 = Debug|Win32
+		{0977CA7B-DF59-49C8-A0AB-2B3A47405908}.Release|x64.ActiveCfg = Release|x64
+		{0977CA7B-DF59-49C8-A0AB-2B3A47405908}.Release|x64.Build.0 = Release|x64
+		{0977CA7B-DF59-49C8-A0AB-2B3A47405908}.Release|x86.ActiveCfg = Release|Win32
+		{0977CA7B-DF59-49C8-A0AB-2B3A47405908}.Release|x86.Build.0 = Release|Win32
+		{C696869F-5D7D-4444-818A-249917DBDB46}.Debug|x64.ActiveCfg = Debug|x64
+		{C696869F-5D7D-4444-818A-249917DBDB46}.Debug|x64.Build.0 = Debug|x64
+		{C696869F-5D7D-4444-818A-249917DBDB46}.Debug|x86.ActiveCfg = Debug|Win32
+		{C696869F-5D7D-4444-818A-249917DBDB46}.Debug|x86.Build.0 = Debug|Win32
+		{C696869F-5D7D-4444-818A-249917DBDB46}.Release|x64.ActiveCfg = Release|x64
+		{C696869F-5D7D-4444-818A-249917DBDB46}.Release|x64.Build.0 = Release|x64
+		{C696869F-5D7D-4444-818A-249917DBDB46}.Release|x86.ActiveCfg = Release|Win32
+		{C696869F-5D7D-4444-818A-249917DBDB46}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7CCFB5DF-75FB-4E17-98E4-A16F425CA344}
+	EndGlobalSection
+EndGlobal
