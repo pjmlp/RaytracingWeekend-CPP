@@ -1,0 +1,2 @@
+# Trying to make C++ modules visible to Github, as per https://github.com/github/linguist/blob/master/docs/overrides.md
+*.ixx linguist-language=C++
