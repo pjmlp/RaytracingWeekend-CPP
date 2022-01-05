@@ -33,5 +33,8 @@
     <ClCompile Include="images.ixx">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="camera.ixx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

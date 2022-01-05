@@ -159,6 +159,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="camera.ixx" />
     <ClCompile Include="color.ixx" />
     <ClCompile Include="algebra.ixx" />
     <ClCompile Include="hittable.ixx" />

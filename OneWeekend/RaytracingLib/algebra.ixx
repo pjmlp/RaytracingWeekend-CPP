@@ -2,6 +2,7 @@ export module algebra;
 
 import <cmath>;
 import <iostream>;
+import <random>;
 
 using std::sqrt;
 
@@ -97,4 +98,27 @@ export {
     inline vec3 unit_vector(vec3 v) {
         return v / v.length();
     }
+}
+
+// Constants
+
+export constinit double infinity = std::numeric_limits<double>::infinity();
+export constinit double pi = 3.1415926535897932385;
+
+// Utility Functions
+
+export inline double degrees_to_radians(double degrees) {
+    return degrees * pi / 180.0;
+}
+
+export inline double random_double() {
+    static std::uniform_real_distribution<double> distribution(0.0, 1.0);
+    static std::mt19937 generator;
+    return distribution(generator);
+}
+
+export inline double clamp(double x, double min, double max) {
+    if (x < min) return min;
+    if (x > max) return max;
+    return x;
 }
