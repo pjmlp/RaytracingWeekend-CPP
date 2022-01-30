@@ -143,6 +143,10 @@ inline double random_double(double min, double max) {
     return min + (max - min) * random_double();
 }
 
+vec3 random_unit_vector() {
+    return unit_vector(random_in_unit_sphere());
+}
+
 inline double clamp(double x, double min, double max) {
     if (x < min) return min;
     if (x > max) return max;
