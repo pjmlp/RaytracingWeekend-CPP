@@ -3,7 +3,8 @@ export module camera;
 import algebra;
 import ray;
 
-export namespace RaytracingLib::camera {
+// public view of the module
+export namespace Raytracinglib {
 
     class camera {
     public:

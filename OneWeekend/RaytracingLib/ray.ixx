@@ -2,21 +2,26 @@ export module ray;
 
 import algebra;
 
-export class ray {
-public:
-    ray() {}
-    ray(const point3& origin, const vec3& direction)
-        : orig(origin), dir(direction)
-    {}
+// public view of the module
+export namespace Raytracinglib {
 
-    point3 origin() const { return orig; }
-    vec3 direction() const { return dir; }
+    class ray final {
+    public:
+        ray() = default;
 
-    point3 at(double t) const {
-        return orig + t * dir;
-    }
+        ray(const point3& origin, const vec3& direction)
+            : orig(origin), dir(direction)
+        {}
 
-public:
-    point3 orig;
-    vec3 dir;
-};
+        point3 origin() const { return orig; }
+        vec3 direction() const { return dir; }
+
+        point3 at(double t) const {
+            return orig + t * dir;
+        }
+
+    public:
+        point3 orig;
+        vec3 dir;
+    };
+}

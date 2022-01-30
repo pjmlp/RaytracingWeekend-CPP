@@ -36,5 +36,8 @@
     <ClCompile Include="camera.ixx">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RaytracingLib.ixx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

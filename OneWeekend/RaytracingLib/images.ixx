@@ -15,7 +15,7 @@ import <stdexcept>;
 import algebra;
 
 // public view of the module
-export namespace Raytracinglib::images {
+export namespace Raytracinglib {
     /**
      * @brief Set of available pixel formats to export.
      */
