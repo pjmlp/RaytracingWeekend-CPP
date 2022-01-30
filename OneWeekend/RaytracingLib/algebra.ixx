@@ -6,12 +6,12 @@ import <random>;
 
 using std::sqrt;
 
+// public view of the module
+export namespace Raytracinglib {
+
 // forward declarations
 double random_double();
 double random_double(double min, double max);
-
-// public view of the module
-export namespace Raytracinglib {
 
 class vec3 final {
 public:
