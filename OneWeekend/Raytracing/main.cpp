@@ -2,15 +2,9 @@ import <iostream>;
 import <memory>;
 import <vector>;
 
-import algebra;
-import color;
-import ray;
-import images;
-import hittable;
-import sphere;
-import camera;
+import RaytracingLib;
 
-using namespace Raytracinglib;
+using namespace RaytracingLib;
 
 color ray_color(const ray& r, const hittable& world, int depth) {
     hit_record rec;

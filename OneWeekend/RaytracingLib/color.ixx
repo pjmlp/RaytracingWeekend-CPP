@@ -1,11 +1,11 @@
-export module color;
+export module RaytracingLib:color;
 
 import <iostream>;
 
-import algebra;
+import :algebra;
 
 // public view of the module
-export namespace Raytracinglib {
+export namespace RaytracingLib {
 
     void write_color(std::ostream& out, color pixel_color) {
         // Write the translated [0,255] value of each color component.

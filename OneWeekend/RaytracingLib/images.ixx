@@ -4,7 +4,7 @@ module;
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
-export module images;
+export module RaytracingLib:images;
 
 import <string>;
 import <vector>;
@@ -12,10 +12,10 @@ import <span>;
 import <cstddef>;
 import <stdexcept>;
 
-import algebra;
+import :algebra;
 
 // public view of the module
-export namespace Raytracinglib {
+export namespace RaytracingLib {
     /**
      * @brief Set of available pixel formats to export.
      */

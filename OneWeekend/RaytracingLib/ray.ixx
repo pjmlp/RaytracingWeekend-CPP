@@ -1,9 +1,9 @@
-export module ray;
+export module RaytracingLib:ray;
 
-import algebra;
+import :algebra;
 
 // public view of the module
-export namespace Raytracinglib {
+export namespace RaytracingLib {
 
     class ray final {
     public:

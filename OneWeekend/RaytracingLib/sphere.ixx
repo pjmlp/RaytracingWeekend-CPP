@@ -1,12 +1,12 @@
-export module sphere;
+export module RaytracingLib:sphere;
 
 import <cmath>;
 
-import algebra;
-import hittable;
+import :algebra;
+import :hittable;
 
 // public view of the module
-export namespace Raytracinglib {
+export namespace RaytracingLib {
 
     class sphere : public hittable {
     public:

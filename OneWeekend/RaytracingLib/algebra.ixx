@@ -1,4 +1,4 @@
-export module algebra;
+export module RaytracingLib:algebra;
 
 import <cmath>;
 import <iostream>;
@@ -7,7 +7,7 @@ import <random>;
 using std::sqrt;
 
 // public view of the module
-export namespace Raytracinglib {
+export namespace RaytracingLib {
 
 // forward declarations
 double random_double();

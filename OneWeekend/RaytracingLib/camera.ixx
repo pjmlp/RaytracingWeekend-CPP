@@ -1,10 +1,10 @@
-export module camera;
+export module RaytracingLib:camera;
 
-import algebra;
-import ray;
+import :algebra;
+import :ray;
 
 // public view of the module
-export namespace Raytracinglib {
+export namespace RaytracingLib {
 
     class camera {
     public:

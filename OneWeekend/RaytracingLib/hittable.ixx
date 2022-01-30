@@ -1,13 +1,13 @@
-export module hittable;
+export module RaytracingLib:hittable;
 
 import <memory>;
 import <vector>;
 
-import algebra;
-import ray;
+import :algebra;
+import :ray;
 
 // public view of the module
-export namespace Raytracinglib {
+export namespace RaytracingLib {
 
     struct hit_record {
         point3 p;
