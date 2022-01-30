@@ -10,8 +10,7 @@ import hittable;
 import sphere;
 import camera;
 
-using namespace Raytracinglib::images;
-using namespace RaytracingLib::camera;
+using namespace Raytracinglib;
 
 color ray_color(const ray& r, const hittable& world, int depth) {
     hit_record rec;
