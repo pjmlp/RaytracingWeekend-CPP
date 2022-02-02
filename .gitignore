@@ -34,8 +34,3 @@
 # Visual Studio directories
 .vs
 x64
-
-# Image files
-*.png
-*.ppm
-*.bmp
