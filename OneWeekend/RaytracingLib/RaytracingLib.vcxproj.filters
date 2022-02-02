@@ -39,5 +39,8 @@
     <ClCompile Include="RaytracingLib.ixx">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="material.ixx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

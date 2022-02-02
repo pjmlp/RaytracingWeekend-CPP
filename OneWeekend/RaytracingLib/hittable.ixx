@@ -8,10 +8,17 @@ import :ray;
 
 // public view of the module
 export namespace RaytracingLib {
+    // avoid some typing
+    using std::shared_ptr;
+    using std::make_shared;
+
+    // forward declarations
+    class material;
 
     struct hit_record {
         point3 p;
         vec3 normal;
+        shared_ptr<material> mat_ptr;
         double t;
         bool front_face;
 
@@ -25,11 +32,6 @@ export namespace RaytracingLib {
     public:
         virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) const = 0;
     };
-
-
-    // avoid some typing
-    using std::shared_ptr;
-    using std::make_shared;
 
     export class hittable_list : public hittable {
     public:
@@ -61,5 +63,14 @@ export namespace RaytracingLib {
 
         return hit_anything;
     }
+
+    class material {
+    public:
+        virtual ~material() = default;
+
+        virtual bool scatter(
+            const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered
+        ) const = 0;
+    };
 
 }

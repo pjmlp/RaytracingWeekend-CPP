@@ -164,6 +164,7 @@
     <ClCompile Include="algebra.ixx" />
     <ClCompile Include="hittable.ixx" />
     <ClCompile Include="images.ixx" />
+    <ClCompile Include="material.ixx" />
     <ClCompile Include="ray.ixx" />
     <ClCompile Include="RaytracingLib.ixx" />
     <ClCompile Include="sphere.ixx" />

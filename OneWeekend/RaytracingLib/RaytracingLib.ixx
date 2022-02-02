@@ -7,3 +7,4 @@ export import :hittable;
 export import :ray;
 export import :sphere;
 export import :images;
+export import :material;
