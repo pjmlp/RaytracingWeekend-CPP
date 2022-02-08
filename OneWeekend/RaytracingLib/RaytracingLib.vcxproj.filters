@@ -42,5 +42,8 @@
     <ClCompile Include="material.ixx">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="scene.ixx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

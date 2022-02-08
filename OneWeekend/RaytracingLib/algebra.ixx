@@ -58,6 +58,14 @@ public:
         return (fabs(e[0]) < s) && (fabs(e[1]) < s) && (fabs(e[2]) < s);
     }
 
+    inline static vec3 random() {
+        return vec3(random_double(), random_double(), random_double());
+    }
+
+    inline static vec3 random(double min, double max) {
+        return vec3(random_double(min, max), random_double(min, max), random_double(min, max));
+    }
+
 public:
     double e[3];
 };
@@ -115,17 +123,9 @@ vec3 reflect(const vec3& v, const vec3& n) {
     return v - 2 * dot(v, n) * n;
 }
 
-inline static vec3 random() {
-    return vec3(random_double(), random_double(), random_double());
-}
-
-inline static vec3 random(double min, double max) {
-    return vec3(random_double(min, max), random_double(min, max), random_double(min, max));
-}
-
 vec3 random_in_unit_sphere() {
     while (true) {
-        auto p = random(-1, 1);
+        auto p = vec3::random(-1, 1);
         if (p.length_squared() >= 1) continue;
         return p;
     }

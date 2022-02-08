@@ -167,6 +167,7 @@
     <ClCompile Include="material.ixx" />
     <ClCompile Include="ray.ixx" />
     <ClCompile Include="RaytracingLib.ixx" />
+    <ClCompile Include="scene.ixx" />
     <ClCompile Include="sphere.ixx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
