@@ -40,18 +40,8 @@ int main() {
     ImageBuffer buffer(image_width, image_height, PixelFormat::RGB);
 
     // World
-    //hittable_list world;
-
-    auto R = cos(pi / 4);
     hittable_list world;
 
-    auto material_left = make_shared<lambertian>(color(0, 0, 1));
-    auto material_right = make_shared<lambertian>(color(1, 0, 0));
-
-    world.add(make_shared<sphere>(point3(-R, 0, -1), R, material_left));
-    world.add(make_shared<sphere>(point3(R, 0, -1), R, material_right));
-
-    /*
     auto material_ground = make_shared<lambertian>(color(0.8, 0.8, 0.0));
     auto material_center = make_shared<lambertian>(color(0.1, 0.2, 0.5));
     auto material_left = make_shared<dielectric>(1.5);
@@ -62,9 +52,9 @@ int main() {
     world.add(make_shared<sphere>(point3(-1.0, 0.0, -1.0), 0.5, material_left));
     world.add(make_shared<sphere>(point3(-1.0, 0.0, -1.0), -0.4, material_left));
     world.add(make_shared<sphere>(point3(1.0, 0.0, -1.0), 0.5, material_right));
-    */
+
     // Camera
-    camera cam(90.0, aspect_ratio);
+    camera cam(point3(-2, 2, 1), point3(0, 0, -1), vec3(0, 1, 0), 90, aspect_ratio);
 
     // Render
     for (int j = image_height - 1; j >= 0; --j) {
