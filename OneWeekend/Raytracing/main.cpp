@@ -4,6 +4,7 @@
 import <iostream>;
 import <memory>;
 import <vector>;
+import <mutex>;
 
 import RaytracingLib;
 
@@ -56,10 +57,16 @@ int main() {
 
     // Render
     // Improve this to be more portable, right now just POC
+    std::mutex output_mutex;
     concurrency::parallel_for(size_t(0), size_t(image_height), [&](size_t index)
         {
+            {
+                // basic way to serialize output on task creation
+                std::lock_guard<std::mutex> guard(output_mutex);
+                std::cerr << "Processing scanline: " << index << " from " << image_height << '\n' << std::flush;
+            }
+
             int j = image_height - index - 1;
-            std::cerr << "Processing scanline: " << index << '\n' << std::flush;
             for (int i = 0; i < image_width; ++i) {
                 color pixel_color(0, 0, 0);
                 for (int s = 0; s < samples_per_pixel; ++s) {
