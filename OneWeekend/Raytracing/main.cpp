@@ -5,6 +5,7 @@ import <iostream>;
 import <memory>;
 import <vector>;
 import <mutex>;
+import <format>;
 
 import RaytracingLib;
 
@@ -58,12 +59,16 @@ int main() {
     // Render
     // Improve this to be more portable, right now just POC
     std::mutex output_mutex;
+    std::atomic<size_t> counter = size_t(image_height);
     concurrency::parallel_for(size_t(0), size_t(image_height), [&](size_t index)
         {
+            auto current = counter.fetch_sub(1);
+            auto msg = std::format("\rProcessing scanline: {} from {}", current, image_height);
+
             {
                 // basic way to serialize output on task creation
                 std::lock_guard<std::mutex> guard(output_mutex);
-                std::cerr << "Processing scanline: " << index << " from " << image_height << '\n' << std::flush;
+                std::cerr << msg << std::flush;
             }
 
             int j = image_height - index - 1;
