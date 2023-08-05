@@ -71,7 +71,7 @@ int main() {
                 std::cerr << msg << std::flush;
             }
 
-            int j = image_height - index - 1;
+            int j = static_cast<int>(image_height - index - 1);
             for (int i = 0; i < image_width; ++i) {
                 color pixel_color(0, 0, 0);
                 for (int s = 0; s < samples_per_pixel; ++s) {
