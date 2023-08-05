@@ -1,16 +1,20 @@
 module;
 
+// for sprintf_s and friends
+#ifdef _WIN32
 #define __STDC_LIB_EXT1__
+#endif
+
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
-export module RaytracingLib:images;
+#include <string>
+#include <vector>
+#include <span>
+#include <cstddef>
+#include <stdexcept>
 
-import <string>;
-import <vector>;
-import <span>;
-import <cstddef>;
-import <stdexcept>;
+export module RaytracingLib:images;
 
 import :algebra;
 

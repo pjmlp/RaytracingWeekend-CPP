@@ -1,8 +1,10 @@
-export module RaytracingLib:algebra;
+module;
 
-import <cmath>;
-import <iostream>;
-import <random>;
+#include <cmath>
+#include <iostream>
+#include <random>
+
+export module RaytracingLib:algebra;
 
 using std::sqrt;
 
@@ -71,8 +73,8 @@ public:
 };
 
 // Type aliases for vec3
-export using point3 = vec3;   // 3D point
-export using color = vec3;
+using point3 = vec3;   // 3D point
+using color = vec3;
 
 // vec3 Utility Functions
 inline std::ostream& operator<<(std::ostream& out, const vec3& v) {

@@ -1,3 +1,7 @@
+module;
+
+#include <cmath>
+
 export module RaytracingLib:material;
 
 import :algebra;

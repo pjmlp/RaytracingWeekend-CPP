@@ -1,6 +1,8 @@
-export module RaytracingLib:camera;
+module;
 
-import <cmath>;
+#include <cmath>
+
+export module RaytracingLib:camera;
 
 import :algebra;
 import :ray;

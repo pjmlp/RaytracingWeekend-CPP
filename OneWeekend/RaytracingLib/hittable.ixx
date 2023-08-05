@@ -1,7 +1,9 @@
-export module RaytracingLib:hittable;
+module;
 
-import <memory>;
-import <vector>;
+#include <memory>
+#include <vector>
+
+export module RaytracingLib:hittable;
 
 import :algebra;
 import :ray;
@@ -33,7 +35,7 @@ export namespace RaytracingLib {
         virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) const = 0;
     };
 
-    export class hittable_list : public hittable {
+    class hittable_list : public hittable {
     public:
         hittable_list() {}
         hittable_list(shared_ptr<hittable> object) { add(object); }

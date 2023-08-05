@@ -1,10 +1,13 @@
-export module RaytracingLib:sphere;
+module;
 
-import <cmath>;
-import <memory>;
+#include <cmath>
+#include <memory>
+
+export module RaytracingLib:sphere;
 
 import :algebra;
 import :hittable;
+import :ray;
 
 // public view of the module
 export namespace RaytracingLib {
