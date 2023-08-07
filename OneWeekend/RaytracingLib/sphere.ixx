@@ -12,9 +12,10 @@ import :ray;
 // public view of the module
 export namespace RaytracingLib {
 
-    class sphere : public hittable {
+    class sphere final : public hittable {
     public:
-        sphere() {}
+        sphere() = default;
+        ~sphere() = default;
         sphere(point3 cen, double r, shared_ptr<material> m) : center(cen), radius(r), mat_ptr(m) {};
 
         virtual bool hit(

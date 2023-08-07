@@ -6,7 +6,11 @@ module;
 #endif
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wmissing-field-initializers"
 #include "stb_image_write.h"
+#pragma clang diagnostic pop
 
 #include <string>
 #include <vector>
@@ -36,7 +40,7 @@ export namespace RaytracingLib {
      */
     void write_image(const std::string& filename, int width, int height, PixelFormat format, std::span<std::uint8_t> buffer) {
         auto bpp = static_cast<int>(format);
-        if (width * height * bpp > buffer.size()) {
+        if (static_cast<size_t>(width * height * bpp) > buffer.size()) {
             throw std::out_of_range("Image buffer isn't the expected size");
         }
 
@@ -69,7 +73,7 @@ export namespace RaytracingLib {
         void set_color(int x, int y, std::uint8_t r, std::uint8_t g, std::uint8_t b) {
             const int bpp = static_cast<int>(imgFormat);
             const int index = (y * imgHeight + x) * bpp;
-            if (index + bpp > buffer.size()) {
+            if (static_cast<size_t>(index + bpp) > buffer.size()) {
                 throw std::out_of_range("Image buffer isn't the expected size");
             }
 
@@ -81,7 +85,7 @@ export namespace RaytracingLib {
         void set_color(int x, int y, color pixel_color) {
             const int bpp = static_cast<int>(imgFormat);
             const int index = (y * imgWidth + x) * bpp;
-            if (index + bpp > buffer.size()) {
+            if (static_cast<size_t>(index + bpp) > buffer.size()) {
                 throw std::out_of_range("Image buffer isn't the expected size");
             }
 
@@ -94,7 +98,7 @@ export namespace RaytracingLib {
         void set_color(int x, int y, color pixel_color, int samples_per_pixel) {
             const int bpp = static_cast<int>(imgFormat);
             const int index = (y * imgWidth + x) * bpp;
-            if (index + bpp > buffer.size()) {
+            if (static_cast<size_t>(index + bpp) > buffer.size()) {
                 throw std::out_of_range("Image buffer isn't the expected size");
             }
 
@@ -117,7 +121,7 @@ export namespace RaytracingLib {
         void set_color(int x, int y, std::uint8_t r, std::uint8_t g, std::uint8_t b, std::uint8_t a) {
             constexpr int bpp = static_cast<int>(PixelFormat::RGBA);
             const int index = (y * imgWidth + x) * bpp;
-            if (index + bpp > buffer.size()) {
+            if (static_cast<size_t>(index + bpp) > buffer.size()) {
                 throw std::out_of_range("Image buffer isn't the expected size");
             }
 
