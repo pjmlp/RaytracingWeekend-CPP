@@ -12,4 +12,6 @@ It makes use of Visual Studio 2022, and third party dependecies are expected to 
 
 ## POSIX OSes
 
-For the time being I am ignoring them until CMake and the respective compilers have proper support for C++20.
+Initial support has been added for clang 17, alongside cmake 3.26 and ninja 1.11.1.
+
+Note that there are still some issues, see the CMakeLists.txt file for more information.
