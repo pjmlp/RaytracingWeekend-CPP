@@ -1,11 +1,15 @@
-#include <windows.h>
-#include <ppl.h>
+#include <iostream>
+#include <memory>
+#include <vector>
 
-import <iostream>;
-import <memory>;
-import <vector>;
-import <mutex>;
-import <format>;
+#include <mutex>
+#include <atomic>
+
+#include <ranges>
+#include <algorithm>
+#include <execution>
+
+#include <format>
 
 import RaytracingLib;
 
@@ -17,7 +21,7 @@ color ray_color(const ray& r, const hittable& world, int depth) {
     // If we've exceeded the ray bounce limit, no more light is gathered.
     if (depth <= 0) {
         return color(0, 0, 0);
-    }  
+    }
 
     if (world.hit(r, 0.001, infinity, rec)) {
         ray scattered;
@@ -57,32 +61,32 @@ int main() {
     camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus);
 
     // Render
-    // Improve this to be more portable, right now just POC
     std::mutex output_mutex;
     std::atomic<size_t> counter = size_t(image_height);
-    concurrency::parallel_for(size_t(0), size_t(image_height), [&](size_t index)
+
+    auto data_range = std::ranges::iota_view(size_t(0), size_t(image_height));
+    std::for_each(std::execution::par, data_range.begin(), data_range.end(), [&](size_t index) {
+        auto current = counter.fetch_sub(1);
+        auto msg = std::format("\rProcessing scanline: {} from {}", current, image_height);
+
         {
-            auto current = counter.fetch_sub(1);
-            auto msg = std::format("\rProcessing scanline: {} from {}", current, image_height);
+            // basic way to serialize output on task creation
+            std::lock_guard<std::mutex> guard(output_mutex);
+            std::cerr << msg << std::flush;
+        }
 
-            {
-                // basic way to serialize output on task creation
-                std::lock_guard<std::mutex> guard(output_mutex);
-                std::cerr << msg << std::flush;
+        int j = static_cast<int>(image_height - index - 1);
+        for (int i = 0; i < image_width; ++i) {
+            color pixel_color(0, 0, 0);
+            for (int s = 0; s < samples_per_pixel; ++s) {
+                auto u = (i + random_double()) / (image_width - 1);
+                auto v = (j + random_double()) / (image_height - 1);
+                ray r = cam.get_ray(u, v);
+                pixel_color += ray_color(r, world, max_depth);
             }
-
-            int j = static_cast<int>(image_height - index - 1);
-            for (int i = 0; i < image_width; ++i) {
-                color pixel_color(0, 0, 0);
-                for (int s = 0; s < samples_per_pixel; ++s) {
-                    auto u = (i + random_double()) / (image_width - 1);
-                    auto v = (j + random_double()) / (image_height - 1);
-                    ray r = cam.get_ray(u, v);
-                    pixel_color += ray_color(r, world, max_depth);
-                }
-                buffer.set_color(i, j, pixel_color, samples_per_pixel);
-            }
-        });
+            buffer.set_color(i, j, pixel_color, samples_per_pixel);
+        }
+     });
 
     buffer.save("img.png");
     std::cerr << "\nDone.\n";
