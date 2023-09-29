@@ -5,12 +5,17 @@ module;
 #define __STDC_LIB_EXT1__
 #endif
 
-#define STB_IMAGE_WRITE_IMPLEMENTATION
-
+#ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wmissing-field-initializers"
+#endif
+
+#define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
+
+#ifdef __clang__
 #pragma clang diagnostic pop
+#endif
 
 #include <string>
 #include <vector>
