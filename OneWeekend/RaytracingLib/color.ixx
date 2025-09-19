@@ -1,8 +1,6 @@
-module;
-
-#include <iostream>
-
 export module RaytracingLib:color;
+
+import std;
 
 import :algebra;
 

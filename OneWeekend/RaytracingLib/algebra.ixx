@@ -1,12 +1,6 @@
-module;
-
-#include <cmath>
-#include <iostream>
-#include <random>
-
 export module RaytracingLib:algebra;
 
-using std::sqrt;
+import std;
 
 // public view of the module
 export namespace RaytracingLib {
@@ -47,7 +41,7 @@ public:
     }
 
     double length() const {
-        return sqrt(length_squared());
+        return std::sqrt(length_squared());
     }
 
     double length_squared() const {
@@ -57,7 +51,7 @@ public:
     bool near_zero() const {
         // Return true if the vector is close to zero in all dimensions.
         constexpr auto s = 1e-8;
-        return (fabs(e[0]) < s) && (fabs(e[1]) < s) && (fabs(e[2]) < s);
+        return (std::fabs(e[0]) < s) && (std::fabs(e[1]) < s) && (std::fabs(e[2]) < s);
     }
 
     inline static vec3 random() {
@@ -136,7 +130,7 @@ vec3 random_in_unit_sphere() {
 vec3 refract(const vec3& uv, const vec3& n, double etai_over_etat) {
     auto cos_theta = fmin(dot(-uv, n), 1.0);
     vec3 r_out_perp = etai_over_etat * (uv + cos_theta * n);
-    vec3 r_out_parallel = -sqrt(fabs(1.0 - r_out_perp.length_squared())) * n;
+    vec3 r_out_parallel = -std::sqrt(fabs(1.0 - r_out_perp.length_squared())) * n;
     return r_out_perp + r_out_parallel;
 }
 

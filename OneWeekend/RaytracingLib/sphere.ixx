@@ -1,9 +1,6 @@
-module;
-
-#include <cmath>
-#include <memory>
-
 export module RaytracingLib:sphere;
+
+import std;
 
 import :algebra;
 import :hittable;
@@ -35,7 +32,7 @@ export namespace RaytracingLib {
 
         auto discriminant = half_b * half_b - a * c;
         if (discriminant < 0) return false;
-        auto sqrtd = sqrt(discriminant);
+        auto sqrtd = std::sqrt(discriminant);
 
         // Find the nearest root that lies in the acceptable range.
         auto root = (-half_b - sqrtd) / a;

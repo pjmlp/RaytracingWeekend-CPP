@@ -1,9 +1,6 @@
-module;
-
-#include <memory>
-#include <vector>
-
 export module RaytracingLib:hittable;
+
+import std;
 
 import :algebra;
 import :ray;

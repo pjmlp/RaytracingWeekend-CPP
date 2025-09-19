@@ -1,8 +1,6 @@
-module;
-
-#include <cmath>
-
 export module RaytracingLib:camera;
+
+import std;
 
 import :algebra;
 import :ray;
@@ -22,7 +20,7 @@ export namespace RaytracingLib {
             double focus_dist
         ) {
             auto theta = degrees_to_radians(vfov);
-            auto h = tan(theta / 2);
+            auto h = std::tan(theta / 2);
             auto viewport_height = 2.0 * h;
             auto viewport_width = aspect_ratio * viewport_height;
 

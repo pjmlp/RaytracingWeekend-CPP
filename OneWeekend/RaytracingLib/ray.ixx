@@ -1,5 +1,7 @@
 export module RaytracingLib:ray;
 
+import std;
+
 import :algebra;
 
 // public view of the module

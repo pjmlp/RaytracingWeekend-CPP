@@ -1,15 +1,4 @@
-#include <iostream>
-#include <memory>
-#include <vector>
-
-#include <mutex>
-#include <atomic>
-
-#include <ranges>
-#include <algorithm>
-#include <execution>
-
-#include <format>
+import std;
 
 import RaytracingLib;
 

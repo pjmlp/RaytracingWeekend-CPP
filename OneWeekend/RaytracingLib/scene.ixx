@@ -1,9 +1,6 @@
-module;
-
-#include <cmath>
-#include <memory>
-
 export module RaytracingLib:scene;
+
+import std;
 
 import :algebra;
 import :hittable;
